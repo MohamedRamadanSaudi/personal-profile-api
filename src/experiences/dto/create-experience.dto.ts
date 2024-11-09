@@ -5,8 +5,7 @@ export class CreateExperienceDto {
   company_name: string;
 
   @IsOptional()
-  @IsString()
-  company_logo?: string;
+  company_logo?: any;
 
   @IsString()
   position: string;
@@ -26,13 +25,5 @@ export class CreateExperienceDto {
   @IsOptional()
   @IsDateString()
   end_date?: Date;
-
-  @IsOptional()
-  @IsDateString()
-  createdAt?: Date;
-
-  @IsOptional()
-  @IsDateString()
-  updatedAt?: Date;
 }
 

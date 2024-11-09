@@ -1,26 +1,61 @@
 import { Injectable } from '@nestjs/common';
 import { CreateExperienceDto } from './dto/create-experience.dto';
 import { UpdateExperienceDto } from './dto/update-experience.dto';
+import { PrismaService } from 'src/prisma/prisma.service';
+import { CloudinaryService } from 'src/cloudinary/cloudinary.service';
 
 @Injectable()
 export class ExperiencesService {
-  create(createExperienceDto: CreateExperienceDto) {
-    return 'This action adds a new experience';
+  constructor(private readonly prisma: PrismaService,
+    private readonly cloudinaryService: CloudinaryService,
+  ) { }
+
+  async create(createExperienceDto: CreateExperienceDto, company_logo?: Express.Multer.File) {
+    let company_logoUrl = null;
+    if (company_logo) {
+      company_logoUrl = await this.cloudinaryService.uploadImage(company_logo);
+    }
+    const result = await this.prisma.experiences.create({
+      data: {
+        ...createExperienceDto,
+        company_logo: company_logoUrl,
+      },
+    });
+    return result;
   }
 
   findAll() {
-    return `This action returns all experiences`;
+    return this.prisma.experiences.findMany()
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} experience`;
+  findOne(id: string) {
+    return this.prisma.experiences.findUnique({
+      where: {
+        id
+      }
+    })
   }
 
-  update(id: number, updateExperienceDto: UpdateExperienceDto) {
-    return `This action updates a #${id} experience`;
+  async update(id: string, updateExperienceDto: UpdateExperienceDto, company_logo?: Express.Multer.File) {
+    let company_logoUrl = null;
+    if (company_logo) {
+      company_logoUrl = await this.cloudinaryService.uploadImage(company_logo);
+    }
+    const result = await this.prisma.experiences.update({
+      where: { id },
+      data: {
+        ...(company_logoUrl ? { company_logo: company_logoUrl } : {}),
+        ...updateExperienceDto,
+      },
+    });
+    return result;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} experience`;
+  remove(id: string) {
+    return this.prisma.experiences.delete({
+      where: {
+        id
+      }
+    })
   }
 }
