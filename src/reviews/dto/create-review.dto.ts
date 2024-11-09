@@ -1,9 +1,8 @@
-import { IsString, IsOptional, IsDateString } from 'class-validator';
+import { IsString, IsOptional } from 'class-validator';
 
 export class CreateReviewDto {
   @IsOptional()
-  @IsString()
-  photo?: string;
+  photo?: any;
 
   @IsString()
   name: string;
@@ -34,12 +33,4 @@ export class CreateReviewDto {
   @IsOptional()
   @IsString()
   website_link?: string;
-
-  @IsOptional()
-  @IsDateString()
-  createdAt?: Date;
-
-  @IsOptional()
-  @IsDateString()
-  updatedAt?: Date;
 }
