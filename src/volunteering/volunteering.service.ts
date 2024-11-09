@@ -1,26 +1,44 @@
 import { Injectable } from '@nestjs/common';
 import { CreateVolunteeringDto } from './dto/create-volunteering.dto';
-import { UpdateVolunteeringDto } from './dto/update-volunteering.dto';
+import { PrismaService } from 'src/prisma/prisma.service';
+import { CloudinaryService } from 'src/cloudinary/cloudinary.service';
 
 @Injectable()
 export class VolunteeringService {
-  create(createVolunteeringDto: CreateVolunteeringDto) {
-    return 'This action adds a new volunteering';
+  constructor(private readonly prisma: PrismaService,
+    private readonly cloudinaryService: CloudinaryService,
+  ) { }
+
+  async create(createVolunteeringDto: CreateVolunteeringDto, photo?: Express.Multer.File) {
+    let photoUrl = null;
+    if (photo) {
+      photoUrl = await this.cloudinaryService.uploadImage(photo);
+    }
+    return this.prisma.volunteering.create({
+      data: {
+        photo: photoUrl,
+        ...createVolunteeringDto,
+      },
+    });
   }
 
   findAll() {
-    return `This action returns all volunteering`;
+    return this.prisma.volunteering.findMany()
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} volunteering`;
+  findOne(id: string) {
+    return this.prisma.volunteering.findUnique({
+      where: {
+        id
+      }
+    })
   }
 
-  update(id: number, updateVolunteeringDto: UpdateVolunteeringDto) {
-    return `This action updates a #${id} volunteering`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} volunteering`;
+  remove(id: string) {
+    return this.prisma.volunteering.delete({
+      where: {
+        id
+      }
+    })
   }
 }

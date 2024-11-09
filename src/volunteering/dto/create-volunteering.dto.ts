@@ -1,9 +1,8 @@
-import { IsString, IsOptional, IsDateString } from 'class-validator';
+import { IsString, IsOptional } from 'class-validator';
 
 export class CreateVolunteeringDto {
   @IsOptional()
-  @IsString()
-  photo?: string;
+  photo?: any;
 
   @IsString()
   position: string;
@@ -16,12 +15,4 @@ export class CreateVolunteeringDto {
 
   @IsString()
   community_name_ar: string;
-
-  @IsOptional()
-  @IsDateString()
-  createdAt?: Date;
-
-  @IsOptional()
-  @IsDateString()
-  updatedAt?: Date;
 }
