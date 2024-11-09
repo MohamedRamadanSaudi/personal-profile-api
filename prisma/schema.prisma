@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+model Volunteering {
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  photo             String?
+  position          String
+  position_ar       String
+  community_name    String
+  community_name_ar String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Certificates {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  photo     String?
+  title     String
+  title_ar  String
+  link      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Reviews {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  photo         String?
+  name          String
+  name_ar       String
+  position      String
+  position_ar   String
+  review        String
+  review_ar     String
+  facebook_link String?
+  linkedin_link String?
+  website_link  String?
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Experiences {
+  id           String    @id @default(auto()) @map("_id") @db.ObjectId
+  company_name String
+  company_logo String?
+  position     String
+  position_ar  String
+  job_type     String
+  job_type_ar  String
+  start_date   DateTime
+  end_date     DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
