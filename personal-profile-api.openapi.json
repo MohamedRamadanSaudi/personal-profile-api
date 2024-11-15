@@ -1,0 +1,1145 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "personal profile api",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "Certificates"
+    },
+    {
+      "name": "Volunteering"
+    },
+    {
+      "name": "Reviews"
+    },
+    {
+      "name": "Experiences"
+    },
+    {
+      "name": "Categories"
+    },
+    {
+      "name": "Projects"
+    }
+  ],
+  "paths": {
+    "/URL/certificates": {
+      "get": {
+        "summary": "list",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Certificates"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "post": {
+        "summary": "create",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Certificates"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "photo": {
+                    "format": "binary",
+                    "type": "string",
+                    "description": "optional",
+                    "example": ""
+                  },
+                  "title": {
+                    "example": "test",
+                    "type": "string"
+                  },
+                  "title_ar": {
+                    "example": "تيست",
+                    "type": "string"
+                  },
+                  "link": {
+                    "description": "optional",
+                    "example": "http://test.com",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/URL/certificates/672eff0d7fcd403ad37c01d2": {
+      "get": {
+        "summary": "display",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Certificates"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "delete",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Certificates"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/URL/volunteering": {
+      "post": {
+        "summary": "create",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Volunteering"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "photo": {
+                    "format": "binary",
+                    "type": "string",
+                    "description": "optional",
+                    "example": "file://M:\\Images\\Profile_avatar_placeholder_large.png"
+                  },
+                  "position": {
+                    "example": "test",
+                    "type": "string"
+                  },
+                  "position_ar": {
+                    "example": "تيست",
+                    "type": "string"
+                  },
+                  "community_name": {
+                    "example": "http://test.com",
+                    "type": "string"
+                  },
+                  "community_name_ar": {
+                    "example": "",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "list",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Volunteering"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/URL/volunteering/672f043e9bbabd141679c595": {
+      "get": {
+        "summary": "display",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Volunteering"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "delete",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Volunteering"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/URL/reviews": {
+      "post": {
+        "summary": "create",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Reviews"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "photo": {
+                    "format": "binary",
+                    "type": "string",
+                    "description": "optional",
+                    "example": "file://M:\\Images\\Profile_avatar_placeholder_large.png"
+                  },
+                  "name": {
+                    "example": "test",
+                    "type": "string"
+                  },
+                  "name_ar": {
+                    "example": "تيست",
+                    "type": "string"
+                  },
+                  "position": {
+                    "example": "http://test.com",
+                    "type": "string"
+                  },
+                  "position_ar": {
+                    "example": "asdg",
+                    "type": "string"
+                  },
+                  "review": {
+                    "example": "asdg",
+                    "type": "string"
+                  },
+                  "review_ar": {
+                    "example": "adfsgh",
+                    "type": "string"
+                  },
+                  "facebook_link": {
+                    "description": "optional",
+                    "example": "afh",
+                    "type": "string"
+                  },
+                  "linkedin_link": {
+                    "description": "optional",
+                    "example": "adfsgh",
+                    "type": "string"
+                  },
+                  "website_link": {
+                    "description": "optional",
+                    "example": "adfsghg",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "list",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Reviews"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/URL/reviews/672f06df4314d2184143e28a": {
+      "get": {
+        "summary": "display",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Reviews"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "delete": {
+        "summary": "delete",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Reviews"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/URL/experiences": {
+      "post": {
+        "summary": "create",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Experiences"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "company_logo": {
+                    "format": "binary",
+                    "type": "string",
+                    "description": "optional",
+                    "example": "file://M:\\Images\\Profile_avatar_placeholder_large.png"
+                  },
+                  "company_name": {
+                    "example": "test",
+                    "type": "string"
+                  },
+                  "position": {
+                    "example": "http://test.com",
+                    "type": "string"
+                  },
+                  "position_ar": {
+                    "example": "asdg",
+                    "type": "string"
+                  },
+                  "job_type": {
+                    "example": "asdg",
+                    "type": "string"
+                  },
+                  "job_type_ar": {
+                    "example": "adfsgh",
+                    "type": "string"
+                  },
+                  "start_date": {
+                    "type": "string",
+                    "example": "2024-11-09"
+                  },
+                  "end_date": {
+                    "description": "optional",
+                    "example": "2024-11-09",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "list",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Experiences"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/URL/experiences/672f0d881dfd27fdfed5d84c": {
+      "patch": {
+        "summary": "update",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Experiences"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "company_logo": {
+                    "format": "binary",
+                    "type": "string",
+                    "description": "optional",
+                    "example": "file://M:\\Images\\Profile_avatar_placeholder_large.png"
+                  },
+                  "company_name": {
+                    "example": "test",
+                    "type": "string"
+                  },
+                  "position": {
+                    "example": "http://test.com",
+                    "type": "string"
+                  },
+                  "position_ar": {
+                    "example": "asdg",
+                    "type": "string"
+                  },
+                  "job_type": {
+                    "example": "asdg",
+                    "type": "string"
+                  },
+                  "job_type_ar": {
+                    "example": "adfsgh",
+                    "type": "string"
+                  },
+                  "start_date": {
+                    "type": "string",
+                    "example": "2024-11-09"
+                  },
+                  "end_date": {
+                    "description": "optional",
+                    "example": "2024-11-09",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "display",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Projects"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/URL/experiences/672f06df4314d2184143e28a": {
+      "delete": {
+        "summary": "delete",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Projects"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/URL/categories": {
+      "post": {
+        "summary": "create",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Categories"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "example": "best",
+                    "type": "string"
+                  },
+                  "name_ar": {
+                    "example": "الأفضل",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "list",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Categories"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/URL/categories/6736d0f8d8e4c73271b8b797": {
+      "get": {
+        "summary": "display",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Categories"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      },
+      "patch": {
+        "summary": "update",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Categories"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "example": {}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "delete": {
+        "summary": "delete",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Categories"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      }
+    },
+    "/URL/categories/6736d4d033c3b21de717bb5e/projects": {
+      "get": {
+        "summary": "list projects thet in this category",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Categories"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/URL/projects": {
+      "post": {
+        "summary": "create",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Projects"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "photo": {
+                    "format": "binary",
+                    "type": "string",
+                    "description": "optional",
+                    "example": "file://M:\\Images\\Profile_avatar_placeholder_large.png"
+                  },
+                  "title": {
+                    "example": "test",
+                    "type": "string"
+                  },
+                  "description": {
+                    "example": "http://test.com",
+                    "type": "string"
+                  },
+                  "description_ar": {
+                    "example": "asdg",
+                    "type": "string"
+                  },
+                  "link_behance": {
+                    "description": "optional",
+                    "example": "asdg",
+                    "type": "string"
+                  },
+                  "link_live": {
+                    "description": "optional",
+                    "example": "adfsgh",
+                    "type": "string"
+                  },
+                  "categoryIds[0]": {
+                    "type": "string",
+                    "example": "2024-11-09"
+                  },
+                  "categoryIds[1]": {
+                    "description": "optional one or more",
+                    "example": "2024-11-09",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "patch": {
+        "summary": "update",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Projects"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "photo": {
+                    "format": "binary",
+                    "type": "string",
+                    "description": "optional",
+                    "example": "file://M:\\Images\\Profile_avatar_placeholder_large.png"
+                  },
+                  "title": {
+                    "example": "test",
+                    "type": "string"
+                  },
+                  "description": {
+                    "example": "http://test.com",
+                    "type": "string"
+                  },
+                  "description_ar": {
+                    "example": "asdg",
+                    "type": "string"
+                  },
+                  "link_behance": {
+                    "description": "optional",
+                    "example": "asdg",
+                    "type": "string"
+                  },
+                  "link_live": {
+                    "description": "optional",
+                    "example": "adfsgh",
+                    "type": "string"
+                  },
+                  "categoryIds[0]": {
+                    "type": "string",
+                    "example": "2024-11-09"
+                  },
+                  "categoryIds[1]": {
+                    "description": "optional one or more",
+                    "example": "2024-11-09",
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "list",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Projects"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/URL/admin": {
+      "post": {
+        "summary": "make the admin",
+        "deprecated": false,
+        "description": "DO NOT USE THIS ENDPOINT YA AYMAN\nملكش دعوة بالزفت ده\n",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    },
+    "/URL/auth/login": {
+      "post": {
+        "summary": "admin login",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {}
+              },
+              "example": {
+                "username": "admin",
+                "password": "Aszasz1122#"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                }
+              }
+            },
+            "headers": {}
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {},
+    "securitySchemes": {
+      "bearer": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "servers": []
+}

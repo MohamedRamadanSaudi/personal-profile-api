@@ -1,0 +1,1112 @@
+{
+  "info": {
+    "title": "personal profile api",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "Certificates"
+    },
+    {
+      "name": "Volunteering"
+    },
+    {
+      "name": "Reviews"
+    },
+    {
+      "name": "Experiences"
+    },
+    {
+      "name": "Categories"
+    },
+    {
+      "name": "Projects"
+    }
+  ],
+  "paths": {
+    "/URL/certificates": {
+      "get": {
+        "summary": "list",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Certificates"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [],
+        "produces": [
+          "application/octet-stream"
+        ]
+      },
+      "post": {
+        "summary": "create",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Certificates"
+        ],
+        "parameters": [
+          {
+            "name": "photo",
+            "in": "formData",
+            "format": "binary",
+            "type": "string",
+            "description": "optional"
+          },
+          {
+            "name": "title",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "title_ar",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "link",
+            "in": "formData",
+            "type": "string",
+            "description": "optional"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    },
+    "/URL/certificates/672eff0d7fcd403ad37c01d2": {
+      "get": {
+        "summary": "display",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Certificates"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [],
+        "produces": [
+          "application/octet-stream"
+        ]
+      },
+      "delete": {
+        "summary": "delete",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Certificates"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "produces": [
+          "application/octet-stream"
+        ]
+      }
+    },
+    "/URL/volunteering": {
+      "post": {
+        "summary": "create",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Volunteering"
+        ],
+        "parameters": [
+          {
+            "name": "photo",
+            "in": "formData",
+            "format": "binary",
+            "type": "string",
+            "description": "optional"
+          },
+          {
+            "name": "position",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "position_ar",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "community_name",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "community_name_ar",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "get": {
+        "summary": "list",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Volunteering"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [],
+        "produces": [
+          "application/octet-stream"
+        ]
+      }
+    },
+    "/URL/volunteering/672f043e9bbabd141679c595": {
+      "get": {
+        "summary": "display",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Volunteering"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [],
+        "produces": [
+          "application/octet-stream"
+        ]
+      },
+      "delete": {
+        "summary": "delete",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Volunteering"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "produces": [
+          "application/octet-stream"
+        ]
+      }
+    },
+    "/URL/reviews": {
+      "post": {
+        "summary": "create",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Reviews"
+        ],
+        "parameters": [
+          {
+            "name": "photo",
+            "in": "formData",
+            "format": "binary",
+            "type": "string",
+            "description": "optional"
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "name_ar",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "position",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "position_ar",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "review",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "review_ar",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "facebook_link",
+            "in": "formData",
+            "type": "string",
+            "description": "optional"
+          },
+          {
+            "name": "linkedin_link",
+            "in": "formData",
+            "type": "string",
+            "description": "optional"
+          },
+          {
+            "name": "website_link",
+            "in": "formData",
+            "type": "string",
+            "description": "optional"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "get": {
+        "summary": "list",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Reviews"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [],
+        "produces": [
+          "application/octet-stream"
+        ]
+      }
+    },
+    "/URL/reviews/672f06df4314d2184143e28a": {
+      "get": {
+        "summary": "display",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Reviews"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [],
+        "produces": [
+          "application/octet-stream"
+        ]
+      },
+      "delete": {
+        "summary": "delete",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Reviews"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "produces": [
+          "application/octet-stream"
+        ]
+      }
+    },
+    "/URL/experiences": {
+      "post": {
+        "summary": "create",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Experiences"
+        ],
+        "parameters": [
+          {
+            "name": "company_logo",
+            "in": "formData",
+            "format": "binary",
+            "type": "string",
+            "description": "optional"
+          },
+          {
+            "name": "company_name",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "position",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "position_ar",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "job_type",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "job_type_ar",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "start_date",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "end_date",
+            "in": "formData",
+            "type": "string",
+            "description": "optional"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "get": {
+        "summary": "list",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Experiences"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [],
+        "produces": [
+          "application/octet-stream"
+        ]
+      }
+    },
+    "/URL/experiences/672f0d881dfd27fdfed5d84c": {
+      "patch": {
+        "summary": "update",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Experiences"
+        ],
+        "parameters": [
+          {
+            "name": "company_logo",
+            "in": "formData",
+            "format": "binary",
+            "type": "string",
+            "description": "optional"
+          },
+          {
+            "name": "company_name",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "position",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "position_ar",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "job_type",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "job_type_ar",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "start_date",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "end_date",
+            "in": "formData",
+            "type": "string",
+            "description": "optional"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "get": {
+        "summary": "display",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Projects"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [],
+        "produces": [
+          "application/octet-stream"
+        ]
+      }
+    },
+    "/URL/experiences/672f06df4314d2184143e28a": {
+      "delete": {
+        "summary": "delete",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Projects"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "produces": [
+          "application/octet-stream"
+        ]
+      }
+    },
+    "/URL/categories": {
+      "post": {
+        "summary": "create",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Categories"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "name_ar",
+            "in": "formData",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "get": {
+        "summary": "list",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Categories"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [],
+        "produces": [
+          "application/octet-stream"
+        ]
+      }
+    },
+    "/URL/categories/6736d0f8d8e4c73271b8b797": {
+      "get": {
+        "summary": "display",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Categories"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [],
+        "produces": [
+          "application/octet-stream"
+        ]
+      },
+      "patch": {
+        "summary": "update",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Categories"
+        ],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "delete": {
+        "summary": "delete",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Categories"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "produces": [
+          "application/octet-stream"
+        ]
+      }
+    },
+    "/URL/categories/6736d4d033c3b21de717bb5e/projects": {
+      "get": {
+        "summary": "list projects thet in this category",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Categories"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [],
+        "produces": [
+          "application/octet-stream"
+        ]
+      }
+    },
+    "/URL/projects": {
+      "post": {
+        "summary": "create",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Projects"
+        ],
+        "parameters": [
+          {
+            "name": "photo",
+            "in": "formData",
+            "format": "binary",
+            "type": "string",
+            "description": "optional"
+          },
+          {
+            "name": "title",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "description_ar",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "link_behance",
+            "in": "formData",
+            "type": "string",
+            "description": "optional"
+          },
+          {
+            "name": "link_live",
+            "in": "formData",
+            "type": "string",
+            "description": "optional"
+          },
+          {
+            "name": "categoryIds[0]",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "categoryIds[1]",
+            "in": "formData",
+            "type": "string",
+            "description": "optional one or more"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "patch": {
+        "summary": "update",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Projects"
+        ],
+        "parameters": [
+          {
+            "name": "photo",
+            "in": "formData",
+            "format": "binary",
+            "type": "string",
+            "description": "optional"
+          },
+          {
+            "name": "title",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "description_ar",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "link_behance",
+            "in": "formData",
+            "type": "string",
+            "description": "optional"
+          },
+          {
+            "name": "link_live",
+            "in": "formData",
+            "type": "string",
+            "description": "optional"
+          },
+          {
+            "name": "categoryIds[0]",
+            "in": "formData",
+            "type": "string"
+          },
+          {
+            "name": "categoryIds[1]",
+            "in": "formData",
+            "type": "string",
+            "description": "optional one or more"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [
+          {
+            "bearer": []
+          }
+        ],
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      },
+      "get": {
+        "summary": "list",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "Projects"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [],
+        "produces": [
+          "application/octet-stream"
+        ]
+      }
+    },
+    "/URL/admin": {
+      "post": {
+        "summary": "make the admin",
+        "deprecated": false,
+        "description": "DO NOT USE THIS ENDPOINT YA AYMAN\nملكش دعوة بالزفت ده\n",
+        "tags": [],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [],
+        "produces": [
+          "application/octet-stream"
+        ]
+      }
+    },
+    "/URL/auth/login": {
+      "post": {
+        "summary": "admin login",
+        "deprecated": false,
+        "description": "",
+        "tags": [],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "security": [],
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ]
+      }
+    }
+  },
+  "swagger": "2.0",
+  "definitions": {},
+  "securityDefinitions": {
+    "bearer": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "x-components": {}
+}
