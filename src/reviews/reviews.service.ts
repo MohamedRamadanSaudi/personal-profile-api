@@ -34,7 +34,20 @@ export class ReviewsService {
     })
   }
 
-  remove(id: string) {
+  async remove(id: string) {
+    // delete the image from cloudinary
+    const review = await this.prisma.reviews.findFirst({
+      where: {
+        id
+      }
+      , select: {
+        photo: true
+      }
+    })
+    if (review?.photo) {
+      this.cloudinaryService.deleteImage(review?.photo
+      )
+    }
     return this.prisma.reviews.delete({
       where: {
         id

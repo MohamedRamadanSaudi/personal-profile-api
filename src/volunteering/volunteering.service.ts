@@ -34,7 +34,20 @@ export class VolunteeringService {
     })
   }
 
-  remove(id: string) {
+  async remove(id: string) {
+    // delete the image from cloudinary
+    const volunteering = await this.prisma.volunteering.findFirst({
+      where: {
+        id
+      }
+      , select: {
+        photo: true
+      }
+    })
+    if (volunteering?.photo) {
+      this.cloudinaryService.deleteImage(volunteering?.photo
+      )
+    }
     return this.prisma.volunteering.delete({
       where: {
         id

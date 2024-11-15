@@ -41,6 +41,18 @@ export class ExperiencesService {
     if (company_logo) {
       company_logoUrl = await this.cloudinaryService.uploadImage(company_logo);
     }
+    const experience = await this.prisma.experiences.findFirst({
+      where: {
+        id
+      }
+      , select: {
+        company_logo: true
+      }
+    })
+    if (experience?.company_logo) {
+      this.cloudinaryService.deleteImage(experience?.company_logo
+      )
+    }
     const result = await this.prisma.experiences.update({
       where: { id },
       data: {
@@ -51,7 +63,20 @@ export class ExperiencesService {
     return result;
   }
 
-  remove(id: string) {
+  async remove(id: string) {
+    // delete the image from cloudinary
+    const experience = await this.prisma.experiences.findFirst({
+      where: {
+        id
+      }
+      , select: {
+        company_logo: true
+      }
+    })
+    if (experience?.company_logo) {
+      this.cloudinaryService.deleteImage(experience?.company_logo
+      )
+    }
     return this.prisma.experiences.delete({
       where: {
         id

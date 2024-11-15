@@ -37,7 +37,21 @@ export class CertificatesService {
     })
   }
 
-  remove(id: string) {
+  async remove(id: string) {
+    // delete the image from cloudinary
+    const certificate = await this.prisma.certificates.findFirst({
+      where: {
+        id
+      }
+      , select: {
+        photo: true
+      }
+    })
+    if (certificate?.photo) {
+      this.cloudinaryService.deleteImage(certificate?.photo
+      )
+    }
+
     return this.prisma.certificates.delete({
       where: {
         id
