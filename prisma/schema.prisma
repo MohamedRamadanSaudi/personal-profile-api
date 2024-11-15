@@ -70,3 +70,35 @@ model Experiences {
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
 }
+
+model Projects {
+  id                 String               @id @default(auto()) @map("_id") @db.ObjectId
+  photo              String?
+  title              String
+  description        String
+  description_ar     String
+  link_behance       String?
+  link_live          String?
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  ProjectsCategories ProjectsCategories[]
+}
+
+model Categories {
+  id                 String               @id @default(auto()) @map("_id") @db.ObjectId
+  name               String
+  name_ar            String
+  createdAt          DateTime             @default(now())
+  updatedAt          DateTime             @updatedAt
+  ProjectsCategories ProjectsCategories[]
+}
+
+model ProjectsCategories {
+  id         String     @id @default(auto()) @map("_id") @db.ObjectId
+  project    Projects   @relation(fields: [projectId], references: [id])
+  projectId  String     @map("projectId") @db.ObjectId
+  category   Categories @relation(fields: [categoryId], references: [id])
+  categoryId String     @map("categoryId") @db.ObjectId
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+}
