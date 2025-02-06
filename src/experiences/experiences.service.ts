@@ -2,18 +2,18 @@ import { Injectable } from '@nestjs/common';
 import { CreateExperienceDto } from './dto/create-experience.dto';
 import { UpdateExperienceDto } from './dto/update-experience.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { CloudinaryService } from 'src/cloudinary/cloudinary.service';
-
+import { FileService } from 'src/common/services/file.service';
+import * as path from 'path';
 @Injectable()
 export class ExperiencesService {
   constructor(private readonly prisma: PrismaService,
-    private readonly cloudinaryService: CloudinaryService,
+    private readonly fileService: FileService,
   ) { }
 
   async create(createExperienceDto: CreateExperienceDto, company_logo?: Express.Multer.File) {
     let company_logoUrl = null;
     if (company_logo) {
-      company_logoUrl = await this.cloudinaryService.uploadImage(company_logo);
+      company_logoUrl = await this.fileService.saveFile(company_logo);
     }
     const result = await this.prisma.experiences.create({
       data: {
@@ -39,7 +39,7 @@ export class ExperiencesService {
   async update(id: string, updateExperienceDto: UpdateExperienceDto, company_logo?: Express.Multer.File) {
     let company_logoUrl = null;
     if (company_logo) {
-      company_logoUrl = await this.cloudinaryService.uploadImage(company_logo);
+      company_logoUrl = await this.fileService.saveFile(company_logo);
     }
     const experience = await this.prisma.experiences.findFirst({
       where: {
@@ -50,8 +50,11 @@ export class ExperiencesService {
       }
     })
     if (experience?.company_logo) {
-      this.cloudinaryService.deleteImage(experience?.company_logo
-      )
+      const urlParts = experience.company_logo.split('/'); // Split the URL
+      const fileName = urlParts[urlParts.length - 1]; // Get the file name with extension
+      const filePath = path.join(__dirname, '..', '..', 'uploads', fileName); // Full path
+
+      await this.fileService.deleteFile(filePath); // Ensure correct path
     }
     const result = await this.prisma.experiences.update({
       where: { id },
@@ -74,8 +77,11 @@ export class ExperiencesService {
       }
     })
     if (experience?.company_logo) {
-      this.cloudinaryService.deleteImage(experience?.company_logo
-      )
+      const urlParts = experience.company_logo.split('/'); // Split the URL
+      const fileName = urlParts[urlParts.length - 1]; // Get the file name with extension
+      const filePath = path.join(__dirname, '..', '..', 'uploads', fileName); // Full path
+
+      await this.fileService.deleteFile(filePath); // Ensure correct path
     }
     return this.prisma.experiences.delete({
       where: {

@@ -69,10 +69,6 @@ To get started with this project locally, follow these steps:
 
 _You can import the collection of endpoints in postman or swagger_
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
 ## Contact
 
 For questions or support, please reach out to [Mohamed Ramadan](mailto:MohamedRamadanSaudi@gmail.com).

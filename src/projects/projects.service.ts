@@ -2,12 +2,13 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateProjectDto } from './dto/create-project.dto';
 import { UpdateProjectDto } from './dto/update-project.dto';
-import { CloudinaryService } from 'src/cloudinary/cloudinary.service';
+import { FileService } from 'src/common/services/file.service';
+import * as path from 'path';
 
 @Injectable()
 export class ProjectsService {
   constructor(private readonly prisma: PrismaService,
-    private readonly cloudinaryService: CloudinaryService,
+    private readonly fileService: FileService,
   ) { }
 
   async create(createProjectDto: CreateProjectDto, photo?: Express.Multer.File) {
@@ -15,7 +16,7 @@ export class ProjectsService {
 
     let photoUrl = null;
     if (photo) {
-      photoUrl = await this.cloudinaryService.uploadImage(photo);
+      photoUrl = await this.fileService.saveFile(photo);
     }
 
     return this.prisma.projects.create({
@@ -83,11 +84,15 @@ export class ProjectsService {
 
       // If there's an existing photo, you might want to delete it from Cloudinary
       if (currentProject?.photo) {
-        await this.cloudinaryService.deleteImage(currentProject.photo);
+        const urlParts = currentProject.photo.split('/'); // Split the URL
+        const fileName = urlParts[urlParts.length - 1]; // Get the file name with extension
+        const filePath = path.join(__dirname, '..', '..', 'uploads', fileName); // Full path
+
+        await this.fileService.deleteFile(filePath); // Ensure correct path
       }
 
       // Upload new photo
-      photoUrl = await this.cloudinaryService.uploadImage(photo);
+      photoUrl = await this.fileService.saveFile(photo);
     }
 
     // First, delete existing category relationships
@@ -129,7 +134,11 @@ export class ProjectsService {
 
     // If there's a photo, delete it from Cloudinary
     if (project?.photo) {
-      await this.cloudinaryService.deleteImage(project.photo);
+      const urlParts = project.photo.split('/'); // Split the URL
+      const fileName = urlParts[urlParts.length - 1]; // Get the file name with extension
+      const filePath = path.join(__dirname, '..', '..', 'uploads', fileName); // Full path
+
+      await this.fileService.deleteFile(filePath); // Ensure correct path
     }
 
     // Delete related ProjectsCategories

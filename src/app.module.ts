@@ -8,17 +8,21 @@ import { CertificatesModule } from './certificates/certificates.module';
 import { ReviewsModule } from './reviews/reviews.module';
 import { ExperiencesModule } from './experiences/experiences.module';
 import { AuthModule } from './auth/auth.module';
-import { MulterModule } from '@nestjs/platform-express';
-import { CloudinaryModule } from './cloudinary/cloudinary.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
 import { ProjectsModule } from './projects/projects.module';
 import { CategoriesModule } from './categories/categories.module';
+import { join } from 'path';
+import { MulterModule } from '@nestjs/platform-express';
 
 @Module({
   imports: [
     MulterModule.register({
       dest: './uploads',
     }),
-    AdminModule, AuthModule, VolunteeringModule, CertificatesModule, ReviewsModule, ExperiencesModule, CloudinaryModule, ProjectsModule, CategoriesModule],
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'uploads'), // Serve files from the uploads folder
+    }),
+    AdminModule, AuthModule, VolunteeringModule, CertificatesModule, ReviewsModule, ExperiencesModule, ProjectsModule, CategoriesModule],
   controllers: [AppController],
   providers: [AppService, PrismaService],
   exports: [PrismaService],

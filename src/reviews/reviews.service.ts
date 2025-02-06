@@ -1,18 +1,19 @@
 import { Injectable } from '@nestjs/common';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { CloudinaryService } from 'src/cloudinary/cloudinary.service';
+import { FileService } from 'src/common/services/file.service';
+import * as path from 'path';
 
 @Injectable()
 export class ReviewsService {
   constructor(private readonly prisma: PrismaService,
-    private readonly cloudinaryService: CloudinaryService,
+    private readonly fileService: FileService
   ) { }
 
   async create(createReviewDto: CreateReviewDto, photo?: Express.Multer.File) {
     let photoUrl = null;
     if (photo) {
-      photoUrl = await this.cloudinaryService.uploadImage(photo);
+      photoUrl = await this.fileService.saveFile(photo);
     }
     return this.prisma.reviews.create({
       data: {
@@ -45,8 +46,11 @@ export class ReviewsService {
       }
     })
     if (review?.photo) {
-      this.cloudinaryService.deleteImage(review?.photo
-      )
+      const urlParts = review.photo.split('/'); // Split the URL
+      const fileName = urlParts[urlParts.length - 1]; // Get the file name with extension
+      const filePath = path.join(__dirname, '..', '..', 'uploads', fileName); // Full path
+
+      await this.fileService.deleteFile(filePath); // Ensure correct path
     }
     return this.prisma.reviews.delete({
       where: {

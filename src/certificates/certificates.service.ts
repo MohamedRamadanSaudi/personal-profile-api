@@ -1,18 +1,19 @@
 import { Injectable } from '@nestjs/common';
 import { CreateCertificateDto } from './dto/create-certificate.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { CloudinaryService } from 'src/cloudinary/cloudinary.service';
+import { FileService } from 'src/common/services/file.service';
+import * as path from 'path';
 
 @Injectable()
 export class CertificatesService {
   constructor(private readonly prisma: PrismaService,
-    private readonly cloudinaryService: CloudinaryService,
+    private readonly fileService: FileService
   ) { }
 
   async create(createCertificateDto: CreateCertificateDto, photo?: Express.Multer.File) {
     let photoUrl = null;
     if (photo) {
-      photoUrl = await this.cloudinaryService.uploadImage(photo);
+      photoUrl = await this.fileService.saveFile(photo);
     }
     if (!createCertificateDto.link) {
       createCertificateDto.link = null;
@@ -48,8 +49,11 @@ export class CertificatesService {
       }
     })
     if (certificate?.photo) {
-      this.cloudinaryService.deleteImage(certificate?.photo
-      )
+      const urlParts = certificate.photo.split('/'); // Split the URL
+      const fileName = urlParts[urlParts.length - 1]; // Get the file name with extension
+      const filePath = path.join(__dirname, '..', '..', 'uploads', fileName); // Full path
+
+      await this.fileService.deleteFile(filePath); // Ensure correct path
     }
 
     return this.prisma.certificates.delete({
